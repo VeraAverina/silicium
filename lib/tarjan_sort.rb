@@ -5,6 +5,7 @@ module Silicium
         item=0
       end
     end
+
     def tarjan_checks(states,node_search, i)
       if states[i] == 0
         node_search = i
@@ -13,6 +14,7 @@ module Silicium
       end
       return node_search
     end
+
     def tarjan_check_nil(node_search, top_sort)
       if node_search==nil
         return top_sort.reverse
@@ -24,8 +26,7 @@ module Silicium
     def tarjan_alg(graph)
       #алгоритм Тарьяна. Получаем граф как после топологической сортировки
       top_sort = []
-      states = Array(graph.size)
-      #init_array_with_zero(states)
+      states = Array.new(graph.size,0)
 
         node_search = nil
         (0..graph.size - 1).each do |i|
